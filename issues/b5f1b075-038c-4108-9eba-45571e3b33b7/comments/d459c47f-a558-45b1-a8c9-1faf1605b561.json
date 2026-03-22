@@ -1,0 +1,8 @@
+{
+  "uuid": "d459c47f-a558-45b1-a8c9-1faf1605b561",
+  "issue_uuid": "b5f1b075-038c-4108-9eba-45571e3b33b7",
+  "author": "anon-3ff78dff",
+  "content": "Design doc updated: all 3 open questions resolved. Added shared data model (guild-core::data), ~/.guild/data/ directory layout, crosslink integration module (guild-core::crosslink), REQ-9/AC-9 for crosslink-based server features.",
+  "created_at": "2026-03-22T15:22:21.048270908Z",
+  "kind": "result"
+}
