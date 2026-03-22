@@ -2,11 +2,12 @@
   "uuid": "bb5f5438-a27c-4b01-8c3f-fe932ccaa355",
   "display_id": 4,
   "title": "Update README.md with apprentice onboarding guide",
-  "status": "open",
+  "status": "closed",
   "priority": "medium",
   "created_by": "anon-3ff78dff",
   "created_at": "2026-03-22T15:49:06.637792205Z",
-  "updated_at": "2026-03-22T15:51:50.124119747Z",
+  "updated_at": "2026-03-22T15:52:00.416041137Z",
+  "closed_at": "2026-03-22T15:52:00.416041137Z",
   "labels": [
     "enhancement"
   ]
