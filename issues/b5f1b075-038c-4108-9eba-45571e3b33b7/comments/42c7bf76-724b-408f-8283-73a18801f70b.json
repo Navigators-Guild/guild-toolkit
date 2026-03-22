@@ -1,0 +1,8 @@
+{
+  "uuid": "42c7bf76-724b-408f-8283-73a18801f70b",
+  "issue_uuid": "b5f1b075-038c-4108-9eba-45571e3b33b7",
+  "author": "anon-3ff78dff",
+  "content": "User wants to design the Cargo workspace structure for a multi-crate CLI toolkit called 'guild'. Each subcommand is its own crate/binary. Pattern follows git/cargo conventions where guild-scaffold, guild-review, etc. are separate binaries sharing conventions. Target audience: apprentice developers learning AI-assisted coding.",
+  "created_at": "2026-03-22T15:11:41.497337085Z",
+  "kind": "plan"
+}
