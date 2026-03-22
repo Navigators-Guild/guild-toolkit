@@ -1,0 +1,16 @@
+[package]
+name = "guild-deps"
+version = "0.1.0"
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "Audit a project's dependencies for freshness, security advisories, and license compatibility"
+
+[[bin]]
+name = "guild-deps"
+path = "src/main.rs"
+
+[dependencies]
+guild-core = { workspace = true }
+clap = { workspace = true }
+anyhow = { workspace = true }

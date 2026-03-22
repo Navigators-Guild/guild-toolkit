@@ -1,0 +1,16 @@
+[package]
+name = "guild-progress"
+version = "0.1.0"
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "Track curriculum progress — what you've completed, what's next"
+
+[[bin]]
+name = "guild-progress"
+path = "src/main.rs"
+
+[dependencies]
+guild-core = { workspace = true }
+clap = { workspace = true }
+anyhow = { workspace = true }

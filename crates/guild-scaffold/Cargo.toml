@@ -1,0 +1,16 @@
+[package]
+name = "guild-scaffold"
+version = "0.1.0"
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "Set up a new project with the right structure, design doc template, crosslink init, gitignore, README skeleton"
+
+[[bin]]
+name = "guild-scaffold"
+path = "src/main.rs"
+
+[dependencies]
+guild-core = { workspace = true }
+clap = { workspace = true }
+anyhow = { workspace = true }

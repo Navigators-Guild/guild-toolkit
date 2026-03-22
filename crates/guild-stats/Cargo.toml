@@ -1,0 +1,16 @@
+[package]
+name = "guild-stats"
+version = "0.1.0"
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "Project health dashboard: test coverage, issue velocity, commit frequency, lines changed"
+
+[[bin]]
+name = "guild-stats"
+path = "src/main.rs"
+
+[dependencies]
+guild-core = { workspace = true }
+clap = { workspace = true }
+anyhow = { workspace = true }

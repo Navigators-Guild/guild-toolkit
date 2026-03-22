@@ -1,0 +1,16 @@
+[package]
+name = "guild-roast"
+version = "0.1.0"
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "Point it at a codebase and get an adversarial review checklist"
+
+[[bin]]
+name = "guild-roast"
+path = "src/main.rs"
+
+[dependencies]
+guild-core = { workspace = true }
+clap = { workspace = true }
+anyhow = { workspace = true }

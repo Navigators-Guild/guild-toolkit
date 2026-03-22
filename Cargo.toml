@@ -1,0 +1,27 @@
+[workspace]
+resolver = "3"
+members = [
+    "crates/guild-core",
+    "crates/guild-scaffold",
+    "crates/guild-review",
+    "crates/guild-progress",
+    "crates/guild-portfolio",
+    "crates/guild-search",
+    "crates/guild-roast",
+    "crates/guild-deps",
+    "crates/guild-stats",
+]
+
+[workspace.package]
+edition = "2024"
+rust-version = "1.85"
+license = "MIT"
+
+[workspace.dependencies]
+guild-core = { path = "crates/guild-core" }
+clap = { version = "4.6", features = ["derive"] }
+serde = { version = "1.0", features = ["derive"] }
+toml = "1.0"
+thiserror = "2.0"
+anyhow = "1.0"
+colored = "3.1"

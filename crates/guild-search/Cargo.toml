@@ -1,0 +1,16 @@
+[package]
+name = "guild-search"
+version = "0.1.0"
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "Search the guild knowledge base, curriculum docs, and common patterns"
+
+[[bin]]
+name = "guild-search"
+path = "src/main.rs"
+
+[dependencies]
+guild-core = { workspace = true }
+clap = { workspace = true }
+anyhow = { workspace = true }
