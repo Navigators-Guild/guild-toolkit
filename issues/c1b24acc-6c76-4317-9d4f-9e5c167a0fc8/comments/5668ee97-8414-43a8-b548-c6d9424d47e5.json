@@ -1,0 +1,8 @@
+{
+  "uuid": "5668ee97-8414-43a8-b548-c6d9424d47e5",
+  "issue_uuid": "c1b24acc-6c76-4317-9d4f-9e5c167a0fc8",
+  "author": "anon-3ff78dff",
+  "content": "Created 60 GitHub issues across all crates and infrastructure. Breakdown: guild-core (9), guild-scaffold (7), guild-progress (5), guild-review (5), guild-portfolio (6), guild-search (5), guild-roast (7), guild-deps (7), guild-stats (6), infrastructure (3).",
+  "created_at": "2026-03-22T15:39:48.257795344Z",
+  "kind": "result"
+}
