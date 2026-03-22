@@ -1,0 +1,8 @@
+{
+  "uuid": "bcd6ebfd-85fa-48b1-879b-3d059a70268f",
+  "issue_uuid": "b517f175-a445-494d-8919-c2cf02ac5aa3",
+  "author": "anon-3ff78dff",
+  "content": "Scaffolding workspace per design doc .design/guild-workspace-structure.md. Creating root Cargo.toml, guild-core lib crate, 8 binary crates with clap stubs. Explicit stub override — apprentices will fill these in.",
+  "created_at": "2026-03-22T15:25:15.719381861Z",
+  "kind": "plan"
+}
