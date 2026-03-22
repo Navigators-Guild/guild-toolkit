@@ -1,0 +1,8 @@
+{
+  "uuid": "3996c20a-f45b-4673-8e77-6c0bcc89d1a6",
+  "issue_uuid": "b5f1b075-038c-4108-9eba-45571e3b33b7",
+  "author": "anon-3ff78dff",
+  "content": "Resolved all 3 open questions: (1) Edition 2024 / MSRV 1.85, (2) Shared data model in guild-core, (3) No server client needed — crosslink/chainlink handles knowledge hub, review submission, etc. Tools integrate with crosslink CLI, not a custom server.",
+  "created_at": "2026-03-22T15:20:33.900644197Z",
+  "kind": "resolution"
+}
