@@ -1,0 +1,8 @@
+{
+  "uuid": "35a5ce21-fe74-49ea-b5cf-f2cb76209278",
+  "issue_uuid": "b5f1b075-038c-4108-9eba-45571e3b33b7",
+  "author": "anon-3ff78dff",
+  "content": "Design doc drafted: .design/guild-workspace-structure.md — 8 requirements, 8 acceptance criteria, 3 open questions remaining (MSRV, state directory layout, server client scope)",
+  "created_at": "2026-03-22T15:15:09.126372081Z",
+  "kind": "plan"
+}
