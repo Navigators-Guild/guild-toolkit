@@ -1,0 +1,8 @@
+{
+  "uuid": "902304c4-0d26-4608-8bcf-d29269cdf7da",
+  "issue_uuid": "b5f1b075-038c-4108-9eba-45571e3b33b7",
+  "author": "anon-3ff78dff",
+  "content": "Design decisions from user interview: (1) Separate binaries, not a dispatcher — each tool is guild-scaffold, guild-review, etc. invoked directly. (2) All 8 tools scaffolded as stubs — explicit override of no-stubs rule because apprentices will fill them in. (3) Unanswered: shared crate scope, config/state location, MSRV — will default and flag as open questions.",
+  "created_at": "2026-03-22T15:13:56.794064028Z",
+  "kind": "decision"
+}
