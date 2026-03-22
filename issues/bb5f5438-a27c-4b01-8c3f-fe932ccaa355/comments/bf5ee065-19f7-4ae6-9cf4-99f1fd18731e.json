@@ -1,0 +1,8 @@
+{
+  "uuid": "bf5ee065-19f7-4ae6-9cf4-99f1fd18731e",
+  "issue_uuid": "bb5f5438-a27c-4b01-8c3f-fe932ccaa355",
+  "author": "anon-3ff78dff",
+  "content": "Writing a README aimed at apprentices: getting started, toolchain setup, branching model (feature → develop → main), tool inventory with difficulty ratings, and how to claim/work issues.",
+  "created_at": "2026-03-22T15:49:42.544553878Z",
+  "kind": "plan"
+}
