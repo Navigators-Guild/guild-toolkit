@@ -328,6 +328,8 @@ pub enum ReviewStatus {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use std::fs::File;
+    use std::io::Write;
     use std::sync::Mutex;
     use tempfile::tempdir;
 
@@ -356,6 +358,9 @@ mod tests {
             name: "Alice".to_string(),
             handle: "alice".to_string(),
             joined: "2025-01-01".to_string(),
+        }
+    }
+
     fn sample_project(name: &str, path: &str) -> Project {
         Project {
             name: name.to_string(),
@@ -383,12 +388,7 @@ mod tests {
     }
 
     #[test]
-    fn test_save_and_load_roundtrip() {
-        let _guard = ENV_LOCK.lock().unwrap();
-    fn test_load_missing_returns_empty_reviews() {
-    fn test_load_missing_returns_empty_progress() {
-        let _guard = crate::TEST_ENV_LOCK.lock().unwrap();
-    fn test_load_missing_returns_empty_registry() {
+    fn test_profile_save_and_load_roundtrip() {
         let _guard1 = ENV_LOCK.lock().unwrap();
         let _guard2 = crate::TEST_ENV_LOCK.lock().unwrap();
         let original = std::env::var("HOME").ok();
@@ -402,6 +402,18 @@ mod tests {
         assert_eq!(loaded.name, "Alice");
         assert_eq!(loaded.handle, "alice");
         assert_eq!(loaded.joined, "2025-01-01");
+
+        restore_home(original);
+    }
+
+    #[test]
+    fn test_load_missing_returns_empty_registry() {
+        let _guard1 = ENV_LOCK.lock().unwrap();
+        let _guard2 = crate::TEST_ENV_LOCK.lock().unwrap();
+        let original = std::env::var("HOME").ok();
+        let dir = tempdir().unwrap();
+        mock_home(dir.path());
+
         let registry = ProjectRegistry::load().unwrap();
         assert!(registry.projects.is_empty());
         let history = ReviewHistory::load().unwrap();
@@ -414,7 +426,8 @@ mod tests {
 
     #[test]
     fn test_load_missing_file_returns_data_error() {
-        let _guard = ENV_LOCK.lock().unwrap();
+        let _guard1 = ENV_LOCK.lock().unwrap();
+        let _guard2 = crate::TEST_ENV_LOCK.lock().unwrap();
         let original = std::env::var("HOME").ok();
         let dir = tempdir().unwrap();
         mock_home(dir.path());
@@ -426,9 +439,14 @@ mod tests {
             GuildError::DataError { .. } => {}
             other => panic!("expected DataError, got: {:?}", other),
         }
-    fn test_save_and_load_roundtrip() {
-        let _guard = ENV_LOCK.lock().unwrap();
-        let _guard = crate::TEST_ENV_LOCK.lock().unwrap();
+
+        restore_home(original);
+    }
+
+    #[test]
+    fn test_registry_history_progress_roundtrip() {
+        let _guard1 = ENV_LOCK.lock().unwrap();
+        let _guard2 = crate::TEST_ENV_LOCK.lock().unwrap();
         let original = std::env::var("HOME").ok();
         let dir = tempdir().unwrap();
         mock_home(dir.path());
@@ -452,6 +470,7 @@ mod tests {
         let p_b = loaded.find_project("PROJECT-B").unwrap();
         assert_eq!(p_b.name, "Project-B");
         assert_eq!(p_b.path, "./b");
+
         let mut history = ReviewHistory::load().unwrap();
         history.add_round(sample_round("Project-A", 1)).unwrap();
         history.add_round(sample_round("Project-B", 2)).unwrap();
@@ -463,6 +482,7 @@ mod tests {
         assert_eq!(loaded.reviews[0].round, 1);
         assert_eq!(loaded.reviews[1].project, "Project-B");
         assert_eq!(loaded.reviews[1].round, 2);
+
         let mut progress = Progress::load().unwrap();
         progress
             .checkpoints
@@ -484,7 +504,8 @@ mod tests {
 
     #[test]
     fn test_load_invalid_toml_returns_parse_error() {
-        let _guard = ENV_LOCK.lock().unwrap();
+        let _guard1 = ENV_LOCK.lock().unwrap();
+        let _guard2 = crate::TEST_ENV_LOCK.lock().unwrap();
         let original = std::env::var("HOME").ok();
         let dir = tempdir().unwrap();
         mock_home(dir.path());
@@ -507,7 +528,8 @@ mod tests {
 
     #[test]
     fn test_load_wrong_schema_returns_parse_error() {
-        let _guard = ENV_LOCK.lock().unwrap();
+        let _guard1 = ENV_LOCK.lock().unwrap();
+        let _guard2 = crate::TEST_ENV_LOCK.lock().unwrap();
         let original = std::env::var("HOME").ok();
         let dir = tempdir().unwrap();
         mock_home(dir.path());
@@ -530,7 +552,8 @@ mod tests {
 
     #[test]
     fn test_save_creates_data_directory() {
-        let _guard = ENV_LOCK.lock().unwrap();
+        let _guard1 = ENV_LOCK.lock().unwrap();
+        let _guard2 = crate::TEST_ENV_LOCK.lock().unwrap();
         let original = std::env::var("HOME").ok();
         let dir = tempdir().unwrap();
         mock_home(dir.path());
@@ -546,6 +569,9 @@ mod tests {
         );
 
         restore_home(original);
+    }
+
+    #[test]
     fn test_add_project_success_and_trimming() {
         let mut registry = ProjectRegistry { projects: vec![] };
 

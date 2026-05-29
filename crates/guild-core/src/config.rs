@@ -76,10 +76,7 @@ fn dirs_or_home() -> PathBuf {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use std::sync::Mutex;
     use tempfile::tempdir;
-
-    static ENV_LOCK: Mutex<()> = Mutex::new(());
 
     fn mock_home(dir: &std::path::Path) {
         unsafe {
@@ -130,7 +127,7 @@ mod tests {
 
     #[test]
     fn test_init_creates_directories_and_default_config() {
-        let _guard = ENV_LOCK.lock().unwrap();
+        let _guard = crate::TEST_ENV_LOCK.lock().unwrap();
         let original = std::env::var("HOME").ok();
         let dir = tempdir().unwrap();
         mock_home(dir.path());
@@ -159,7 +156,7 @@ mod tests {
 
     #[test]
     fn test_init_is_idempotent() {
-        let _guard = ENV_LOCK.lock().unwrap();
+        let _guard = crate::TEST_ENV_LOCK.lock().unwrap();
         let original = std::env::var("HOME").ok();
         let dir = tempdir().unwrap();
         mock_home(dir.path());
@@ -188,7 +185,7 @@ handle = "bob"
 
     #[test]
     fn test_init_fails_if_path_is_blocked_by_file() {
-        let _guard = ENV_LOCK.lock().unwrap();
+        let _guard = crate::TEST_ENV_LOCK.lock().unwrap();
         let original = std::env::var("HOME").ok();
         let dir = tempdir().unwrap();
         mock_home(dir.path());
